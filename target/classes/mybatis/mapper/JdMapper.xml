@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xdpg.mapper.JdMapper">
+
+    <select id="getJdList" resultType="Jd">
+       select * from jd;
+    </select>
+
+    <select id="getJdById" resultType="Jd" parameterType="int">
+       select * from jd where id = #{id};
+    </select>
+
+    <insert id="saveJd" parameterType="Jd">
+        insert into Jd (price,number,market,name)
+        values (#{price},#{number},#{market},#{name});
+    </insert>
+
+    <update id="updateJd" parameterType="Jd">
+         update Jd set price=#{price},number=#{number},market=#{market},name=#{name} where id =#{id}
+    </update>
+
+    <delete id="delJd" parameterType="int">
+        delete from Jd where id = #{id}
+    </delete>
+
+
+</mapper>

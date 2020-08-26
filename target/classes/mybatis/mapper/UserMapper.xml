@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xdpg.mapper.UserMapper">
+
+    <select id="getUserList" resultType="User">
+       select * from t_user;
+    </select>
+
+    <select id="getUserByUserName" resultType="User" parameterType="String">
+       select * from t_user where userName = #{userName};
+    </select>
+
+    <insert id="SaveUser" parameterType="User">
+        insert into t_user (userName,passWord)
+        values (#{userName},#{passWord});
+    </insert>
+
+    <update id="UpdateUser" parameterType="User">
+         update t_user set userName=#{userName},passWord=#{passWord} where id =#{id}
+    </update>
+
+    <delete id="delUser" parameterType="int">
+        delete from t_user where id = #{id}
+    </delete>
+
+
+</mapper>
